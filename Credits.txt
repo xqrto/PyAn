@@ -1,0 +1,50 @@
+# PYAN — Credits & License
+
+## Credits
+
+**Pyan** is a development application designed for working with Python projects and tools.
+
+Created and developed by **xqrto**.
+
+Special thanks to everyone supporting the project and contributing ideas for future improvements.
+
+---
+
+# License Agreement
+
+© 2026 xqrto. All rights reserved.
+
+By using Pyan, you agree to the following terms:
+
+## Allowed Usage
+
+* You may use Pyan for personal and commercial Python development.
+* You may install and run the application only through the official **PyanLauncher**.
+
+## Restrictions
+
+* Modification of the application is strictly prohibited.
+* Reverse engineering, decompiling, cracking, or editing the application files is not allowed.
+* The use of external injectors, DLL injectors, cheats, patches, or unauthorized modifications is forbidden.
+* Third-party modifications are only allowed through officially supported plugin systems implemented directly inside the application by the developer.
+
+## Security Notice
+
+For security reasons, Pyan must only be downloaded and launched using the official **PyanLauncher**.
+
+Versions downloaded from unofficial websites, reuploads, or third-party sources may contain malware, viruses, or manipulated files.
+The developer is not responsible for damages caused by unofficial or modified versions.
+
+## Official Distribution
+
+Official releases of Pyan are only provided through:
+
+* PyanLauncher
+* Official developer sources owned by xqrto
+
+Any other distribution is considered unofficial.
+
+---
+
+Thank you for using Pyan.
+Developed with passion for Python developers.
