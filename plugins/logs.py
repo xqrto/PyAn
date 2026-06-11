@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (
 
 
 class DeveloperTimelinePlugin(BasePlugin):
-    name = "Developer Timeline"
+    name = "Logs"
     version = "1.0"
 
     # =========================
@@ -24,7 +24,7 @@ class DeveloperTimelinePlugin(BasePlugin):
             "pyan_dev_timeline.log"
         )
 
-        self._write_log("PLUGIN_START", "Developer Timeline Plugin gestartet")
+        self._write_log("PLUGIN_START", "Logs Started")
 
     # =========================
     # LOG SYSTEM
