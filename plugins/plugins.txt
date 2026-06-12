@@ -1,2 +1,3 @@
-logs.py
 PluginBrowser.py
+logs.py
+req-installer.py
