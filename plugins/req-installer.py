@@ -1,36 +1,16 @@
-"""
-Requirements Installer Plugin für PyANIDE
-Installiert Abhängigkeiten aus requirements.txt per Toolbar-Button.
-- Findet requirements.txt automatisch im Arbeitsverzeichnis
-- Falls keine gefunden: Auswahl aller .txt-Dateien im Verzeichnis
-- Nutzt echtes python.exe (PyInstaller-sicher)
-"""
-
 from __main__ import BasePlugin
 import os
 import subprocess
 import shutil
-
-
 def find_python() -> str | None:
-    """
-    Sucht das echte python.exe — PyInstaller-sicher.
-    sys.executable zeigt bei gefrorenen EXEs auf pyan.exe.
-    """
     import shutil
-
-    # 1. Windows Launcher
     py = shutil.which("py")
     if py:
         return py
-
-    # 2. PATH
     for candidate in ("python", "python3"):
         path = shutil.which(candidate)
         if path and "pyan" not in path.lower():
             return path
-
-    # 3. Registry
     try:
         import winreg
         for hive in (winreg.HKEY_CURRENT_USER, winreg.HKEY_LOCAL_MACHINE):
