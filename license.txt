@@ -1,0 +1,73 @@
+# PYAN — License Agreement
+
+© 2026 xqrto. All rights reserved.
+
+By using Pyan, you agree to the following terms.
+
+## Allowed Usage
+
+* You may use Pyan for personal and commercial Python development.
+* You may install and run Pyan only through the official **PyanLauncher**.
+* You may create plugins for Pyan using the officially provided plugin system.
+
+## Restrictions
+
+* Modification of the core Pyan application is prohibited.
+* Reverse engineering, decompiling, cracking, or editing the application files is not allowed.
+* The use of external injectors, DLL injectors, cheats, patches, or unauthorized modifications is forbidden.
+* Only officially supported plugins may interact with the application.
+
+## Security Notice
+
+For security reasons, Pyan must only be downloaded and launched using the official **PyanLauncher**.
+
+Versions downloaded from unofficial websites, reuploads, or third-party sources may contain malware, viruses, or manipulated files. The developer is not responsible for damages caused by unofficial or modified versions.
+
+## Official Distribution
+
+Official releases of Pyan are only provided through:
+
+* PyanLauncher
+* Official developer sources owned by xqrto
+
+Any other distribution is considered unofficial.
+
+---
+
+# PYAN Plugin License
+
+© 2026 xqrto
+
+All plugins created for Pyan are considered open source unless otherwise specified by their authors.
+
+## Plugin Permissions
+
+* Plugins may be modified, forked, edited, improved, redistributed, and reused freely.
+* Plugin source code may be used in personal, educational, commercial, and open-source projects.
+* Developers may create derivative works based on existing plugins.
+
+## Plugin Publishing Rules
+
+To protect the Pyan ecosystem from malware and malicious code:
+
+* Any plugin intended to be uploaded, shared through official Pyan sources, or integrated into the Pyan plugin library must first be submitted to the Pyan developer.
+* The developer will review the plugin for malware, viruses, harmful code, backdoors, cryptocurrency miners, data theft, or other malicious behavior.
+* Only plugins that pass the security review may be distributed through official Pyan channels.
+
+## Unofficial Distribution
+
+Developers may distribute plugins independently at their own responsibility. However:
+
+* Such plugins are not considered officially verified by Pyan.
+* Users install unofficial plugins at their own risk.
+* The Pyan developer is not responsible for damages caused by unofficial plugins.
+
+## Goal
+
+These rules exist solely to keep the Pyan ecosystem safe and to prevent malware or harmful software from being distributed through official Pyan platforms.
+
+---
+
+Thank you for using Pyan.
+
+Developed with passion for Python developers.
