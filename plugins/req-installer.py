@@ -50,9 +50,7 @@ REQUIREMENTS_NAMES = {
     "dependencies.txt",
 }
 
-
 def get_working_dir(ide) -> str | None:
-    """Ermittelt das aktuelle Arbeitsverzeichnis aus der IDE."""
     try:
         editor = ide._ed()
         # Versuche Dateipfad des aktuellen Tabs zu bekommen
@@ -61,13 +59,10 @@ def get_working_dir(ide) -> str | None:
             return os.path.dirname(path)
     except Exception:
         pass
-
-    # Fallback: aktuelles Arbeitsverzeichnis
     return os.getcwd()
 
 
 def find_requirements(work_dir: str) -> str | None:
-    """Sucht nach einer bekannten requirements-Datei im Verzeichnis."""
     for name in REQUIREMENTS_NAMES:
         full = os.path.join(work_dir, name)
         if os.path.isfile(full):
@@ -76,7 +71,6 @@ def find_requirements(work_dir: str) -> str | None:
 
 
 def find_all_txt_files(work_dir: str) -> list:
-    """Gibt alle .txt-Dateien im Arbeitsverzeichnis zurück."""
     try:
         return [
             os.path.join(work_dir, f)
@@ -88,7 +82,6 @@ def find_all_txt_files(work_dir: str) -> list:
 
 
 def run_pip_install_r(req_file: str) -> tuple:
-    """Führt pip install -r <datei> aus. Gibt (success, output) zurück."""
     python = find_python()
     if not python:
         return False, (
@@ -120,25 +113,16 @@ class RequirementsInstallerPlugin(BasePlugin):
     def on_startup(self, ide):
         self._ide = ide
 
-    # ------------------------------------------------------------------
-    # Toolbar-Button
-    # ------------------------------------------------------------------
     def add_toolbar_items(self):
         return [
             ("📦 Install Requirements", self._install)
         ]
 
-    # ------------------------------------------------------------------
-    # Menüeintrag (Plugins-Tab)
-    # ------------------------------------------------------------------
     def add_menu_items(self):
         return [
             ("Install from Requirements", self._install)
         ]
 
-    # ------------------------------------------------------------------
-    # Hauptlogik
-    # ------------------------------------------------------------------
     def _install(self):
         from PySide6.QtWidgets import (
             QMessageBox, QInputDialog, QListWidget,
@@ -156,11 +140,9 @@ class RequirementsInstallerPlugin(BasePlugin):
             )
             return
 
-        # Automatisch bekannte requirements.txt suchen
         req_file = find_requirements(work_dir)
 
         if req_file:
-            # Gefunden → direkt bestätigen lassen
             reply = QMessageBox.question(
                 None,
                 "Requirements gefunden",
@@ -170,9 +152,7 @@ class RequirementsInstallerPlugin(BasePlugin):
             if reply != QMessageBox.Yes:
                 return
         else:
-            # Nicht gefunden → alle .txt-Dateien zur Auswahl anbieten
             txt_files = find_all_txt_files(work_dir)
-
             if not txt_files:
                 QMessageBox.information(
                     None,
@@ -182,19 +162,16 @@ class RequirementsInstallerPlugin(BasePlugin):
                 )
                 return
 
-            # Auswahl-Dialog
             dialog = QDialog()
             dialog.setWindowTitle("Keine requirements.txt gefunden")
             dialog.setMinimumWidth(420)
             layout = QVBoxLayout(dialog)
-
             label = QLabel(
                 f"Keine requirements.txt in:\n{work_dir}\n\n"
                 "Wähle eine .txt-Datei aus:"
             )
             label.setWordWrap(True)
             layout.addWidget(label)
-
             list_widget = QListWidget()
             list_widget.setSelectionMode(QAbstractItemView.SingleSelection)
             for f in txt_files:
@@ -203,24 +180,17 @@ class RequirementsInstallerPlugin(BasePlugin):
                 list_widget.addItem(item)
             list_widget.setCurrentRow(0)
             layout.addWidget(list_widget)
-
             buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
             buttons.accepted.connect(dialog.accept)
             buttons.rejected.connect(dialog.reject)
             layout.addWidget(buttons)
-
             if dialog.exec() != QDialog.Accepted:
                 return
-
             selected = list_widget.currentItem()
             if not selected:
                 return
-
             req_file = selected.data(256)
-
-        # Installation durchführen
         success, output = run_pip_install_r(req_file)
-
         if success:
             QMessageBox.information(
                 None,
@@ -229,14 +199,12 @@ class RequirementsInstallerPlugin(BasePlugin):
                 f"wurden erfolgreich installiert."
             )
         else:
-            # Ausgabe kürzen falls zu lang
             short_output = output[:800] + ("..." if len(output) > 800 else "")
             QMessageBox.critical(
                 None,
                 "Installationsfehler",
                 f"pip meldete einen Fehler:\n\n{short_output}"
             )
-
 
 def register(registry):
     registry.register(RequirementsInstallerPlugin())
