@@ -1,3 +1,6 @@
 PluginBrowser.py
 logs.py
 req-installer.py
+build_notification.py
+function_navigator.py
+import_sorter.py

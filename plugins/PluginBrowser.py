@@ -113,7 +113,7 @@ class PluginBrowserDialog(QDialog):
 class PluginBrowserPlugin(BasePlugin):
     name = "Plugin Browser"
     version = "1.0"
-    author = "PyANIDE Developer"
+    author = "xqrto"
 
     def on_startup(self, ide):
         self._ide = ide

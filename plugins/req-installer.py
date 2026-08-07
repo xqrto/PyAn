@@ -108,7 +108,7 @@ def run_pip_install_r(req_file: str) -> tuple:
 class RequirementsInstallerPlugin(BasePlugin):
     name    = "Requirements Installer"
     version = "1.0"
-    author  = "PyANIDE Plugin"
+    author  = "xqrto"
 
     def on_startup(self, ide):
         self._ide = ide
