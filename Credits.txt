@@ -3,3 +3,5 @@
 Created and developed by **xqrto**.
 
 Special thanks to everyone supporting the project and contributing ideas, feedback, and suggestions for future improvements.
+
+AI integration using the OpenCode (https://opencode.ai) API
